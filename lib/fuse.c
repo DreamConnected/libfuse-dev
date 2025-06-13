@@ -42,6 +42,10 @@
 #include <sys/mman.h>
 #include <sys/file.h>
 
+#ifdef __ANDROID__
+#include "ndk_pthread.h"
+#endif
+
 #define FUSE_NODE_SLAB 1
 
 #ifndef MAP_ANONYMOUS

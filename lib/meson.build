@@ -37,7 +37,7 @@ if host_machine.system().startswith('netbsd')
              cc.find_library('puffs') ]
 else
    # Required for clock_gettime before glibc 2.17
-   deps += cc.find_library('rt')
+   deps += cc.find_library('c')
 endif
 
 fusermount_path = join_paths(get_option('prefix'), get_option('bindir'))
@@ -55,7 +55,7 @@ libfuse = library('fuse3',
                               + '/fuse_versionscript' ])
 
 pkg = import('pkgconfig')
-pkg.generate(libraries: [ libfuse, '-lpthread' ],
+pkg.generate(libraries: [ libfuse, '-lc' ],
              libraries_private: '-ldl',
              version: meson.project_version(),
              name: 'fuse3',

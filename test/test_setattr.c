@@ -30,6 +30,10 @@
 #include <linux/limits.h>
 #endif
 
+#ifdef __ANDROID__
+#include "ndk_pthread.h"
+#endif
+
 #define FILE_INO 2
 #define FILE_NAME "truncate_me"
 
